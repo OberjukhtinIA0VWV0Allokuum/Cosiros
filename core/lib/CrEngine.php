@@ -32,12 +32,15 @@ class CrEngine {
 		//echo $_SERVER['DOCUMENT_ROOT']."/stiles/".$this->core_and_site_parametersEng['site']['stile']."/index.html   ";
 	}
 	public function Run(){
-		global $_Debug,$CoreSystemEroorViewer;
+		global $_Debug,$CoreSystemEroorViewer,$core_and_site_parameters;
 		$this->CoreTemplaterEng->setTplFile($_SERVER['DOCUMENT_ROOT']."/stiles/".$this->core_and_site_parametersEng['site']['stile']."/index.html");
 		$menu='';
 		$modul='';
 		$Inscape= array();
 		$modulsRunner=new CrCoreModulsRunner();
+		if (empty($this->Start_ParametrsEng['moduls'])){
+			$this->Start_ParametrsEng['moduls']=$core_and_site_parameters['site']['defaultmoduls'];
+		}
 		if (empty($this->Start_ParametrsEng['function'])){
 			$this->Start_ParametrsEng['function']='FunDdefault';
 		}
@@ -48,13 +51,13 @@ class CrEngine {
 		if ($modulsRunner->getStatus()<>0){
 			exit();
 		} else {
-				$Inscape['mod-autput']=$telo->$activFunction();
-				$menu=new CrMenu();
-				$Inscape['menu-inputs']=$menu->mainMenu();
-				$Inscape['icon']='';
-		$this->CoreTemplaterEng->assign_vars($Inscape);
-		$this->Work_Rezult=$this->CoreTemplaterEng->render();
-	}
+			$Inscape['mod-autput']=$telo->$activFunction($this->Start_ParametrsEng['parameters']);
+			$menu=new CrMenu();
+			$Inscape['menu-inputs']=$menu->mainMenu();
+			$Inscape['icon']='';
+			$this->CoreTemplaterEng->assign_vars($Inscape);
+			$this->Work_Rezult=$this->CoreTemplaterEng->render();
+		}
 	}
 	public function GetStatus(){
 		return $this->Work_Status;

@@ -7,10 +7,10 @@ CRITIC
 <Type>
 1
 </Type> 
-<date>[2016.04.24] 19:01:01
+<date>[2016.04.24] 19:43:59
 </date>
 <description>
- EROOR: 'Call to undefined method mydevice::FunDdefault()' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrEngine.php' on line: 51
+ EROOR: 'Call to undefined method mydevice::mydevice()' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrEngine.php' on line: 55
 </description>
 </Error>
 <Error> 
@@ -21,9 +21,51 @@ CRITIC
 <Type>
 1
 </Type> 
-<date>[2016.04.24] 19:01:47
+<date>[2016.04.24] 19:46:59
 </date>
 <description>
- EROOR: 'Call to undefined method mydevice::::src-avatar::()' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrEngine.php' on line: 51
+ EROOR: 'Call to undefined method mydevice::::src-avatar::()' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrEngine.php' on line: 54
+</description>
+</Error>
+<Error> 
+<title>
+<rang>
+CRITIC
+</rang>
+<Type>
+1
+</Type> 
+<date>[2016.04.24] 19:48:09
+</date>
+<description>
+ EROOR: 'Call to undefined method mydevice::::src-avatar::()' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrEngine.php' on line: 54
+</description>
+</Error>
+<Error> 
+<title>
+<rang>
+CRITIC
+</rang>
+<Type>
+1
+</Type> 
+<date>[2016.04.24] 19:48:16
+</date>
+<description>
+ EROOR: 'Call to undefined method mydevice::::src-avatar::()' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrEngine.php' on line: 54
+</description>
+</Error>
+<Error> 
+<title>
+<rang>
+CRITIC
+</rang>
+<Type>
+1
+</Type> 
+<date>[2016.04.24] 19:49:39
+</date>
+<description>
+ EROOR: 'Call to undefined method mydevice::::src-avatar::()' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrEngine.php' on line: 54
 </description>
 </Error>
