@@ -6,7 +6,7 @@
 class CrEngine {
 	var $Work_Status="normal";
 	var $Work_Errors='0';
-	var $Work_Rezult='Huston,we have a problem,bl yat';
+	var $Work_Rezult='Huston,we have a problem';
 	var $Start_ParametrsEng,$CoreSystemEroorViewerEng, $core_database_driverEng, $headEng, 
 	$secret_parametersEng, $iniParserEng,  $core_and_site_parametersEng, $CoreTemplaterEng,
 	$on_modulsEng, $MainPage, $system_modulsEng, $SystemRunnerEng, $sistemUserEng, $sistemCacherEng;
@@ -43,18 +43,18 @@ class CrEngine {
 		}
 		$telo='';
 		$modulsRunner->getModuls($this->Start_ParametrsEng['moduls'],$this->Start_ParametrsEng['function']); 
-		$modulsName=$modulsRunner->getRezult();
+		$telo=$modulsRunner->getRezult();
 		if ($modulsRunner->getStatus()<>0){
 			exit();
 		} else {
-			if ($this->Start_ParametrsEng['function']==''){
+			/*if ($this->Start_ParametrsEng['function']==''){
 				$this->Start_ParametrsEng['function']='default';
 				$Inscape['mod-autput']=$telo->$this->Start_ParametrsEng['function'];
 				$menu=new CrMenu();
 				$Inscape['menu-inputs']=$menu->mainMenu();
 				$Inscape['icon']='';
 		}	
-		//...1
+		//...1*/
 		$this->Work_Rezult=$this->CoreTemplaterEng->renderAB();
 	}
 	}

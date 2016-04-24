@@ -39,7 +39,8 @@ Class CrCoreModulsRunner{
 				$modSettings=$iniParser->Read();
 				if(file_exists($MeinFileOfModuls)){
 					require_once($MeinFileOfModuls);
-					$this->$ModName;
+					$modul=new $ModName($modSettings);
+					$this->rezult=$modul;
 				} else {$this->Error404(); }
 			} else {$this->Error404(); }
 		}
