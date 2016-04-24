@@ -1,0 +1,57 @@
+
+<Error> 
+<title>
+<rang>
+CRITIC
+</rang>
+<Type>
+64
+</Type> 
+<date>[2016.04.24] 11:53:45
+</date>
+<description>
+ EROOR: 'require_once() [<a href='function.require'>function.require</a>]: Failed opening required '/moduls/mydevice.moddir/mydevice.php' (include_path='.;c:/openserver/modules/php/PHP-5.2;c:/openserver/modules/php/PHP-5.2/PEAR/pear')' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\ModulsRuner.php' on line: 41
+</description>
+</Error>
+<Error> 
+<title>
+<rang>
+CRITIC
+</rang>
+<Type>
+64
+</Type> 
+<date>[2016.04.24] 11:56:32
+</date>
+<description>
+ EROOR: 'require_once() [<a href='function.require'>function.require</a>]: Failed opening required 'C:/OpenServer/domains/testmasteke.leo/moduls/mydevice.moddir/' (include_path='.;c:/openserver/modules/php/PHP-5.2;c:/openserver/modules/php/PHP-5.2/PEAR/pear')' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\ModulsRuner.php' on line: 41
+</description>
+</Error>
+<Error> 
+<title>
+<rang>
+CRITIC
+</rang>
+<Type>
+4
+</Type> 
+<date>[2016.04.24] 11:58:52
+</date>
+<description>
+ EROOR: 'syntax error, unexpected T_CLASS' in file 'C:\OpenServer\domains\testmasteke.leo\moduls\mydevice.moddir\mydevice.php' on line: 3
+</description>
+</Error>
+<Error> 
+<title>
+<rang>
+CRITIC
+</rang>
+<Type>
+1
+</Type> 
+<date>[2016.04.24] 12:21:08
+</date>
+<description>
+ EROOR: 'Call to undefined method CrCoreModulsRunner::settingsClass()' in file 'C:\OpenServer\domains\testmasteke.leo\core\global.php' on line: 55
+</description>
+</Error>
