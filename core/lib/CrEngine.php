@@ -38,24 +38,22 @@ class CrEngine {
 		$modul='';
 		$Inscape= array();
 		$modulsRunner=new CrCoreModulsRunner();
-		if ($this->Start_ParametrsEng['function']==''){
-			$this->Start_ParametrsEng['function']=='0';
+		if (empty($this->Start_ParametrsEng['function'])){
+			$this->Start_ParametrsEng['function']='FunDdefault';
 		}
+		$activFunction=$this->Start_ParametrsEng['function']."";
 		$telo='';
-		$modulsRunner->getModuls($this->Start_ParametrsEng['moduls'],$this->Start_ParametrsEng['function']); 
+		$modulsRunner->getModuls($this->Start_ParametrsEng['moduls']); 
 		$telo=$modulsRunner->getRezult();
 		if ($modulsRunner->getStatus()<>0){
 			exit();
 		} else {
-			/*if ($this->Start_ParametrsEng['function']==''){
-				$this->Start_ParametrsEng['function']='default';
-				$Inscape['mod-autput']=$telo->$this->Start_ParametrsEng['function'];
+				$Inscape['mod-autput']=$telo->$activFunction();
 				$menu=new CrMenu();
 				$Inscape['menu-inputs']=$menu->mainMenu();
 				$Inscape['icon']='';
-		}	
-		//...1*/
-		$this->Work_Rezult=$this->CoreTemplaterEng->renderAB();
+		$this->CoreTemplaterEng->assign_vars($Inscape);
+		$this->Work_Rezult=$this->CoreTemplaterEng->render();
 	}
 	}
 	public function GetStatus(){

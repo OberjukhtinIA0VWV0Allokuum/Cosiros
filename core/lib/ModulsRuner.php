@@ -27,12 +27,21 @@ Class CrCoreModulsRunner{
 			$MeinFileOfModuls=''; 
 			if ($Start_Parametrs=$Start_Parametrs['mode']==''){
 				$MeinFileOfModuls=$Ipath.$ModName.".php";
+				require_once "core/lib/parents/Parents_of_moduls.php";
 			}
 			switch($Start_Parametrs['mode']){
-				case "json": $MeinFileOfModuls=$Ipath.$ModName."-json.php"; break;
-				case "api": $MeinFileOfModuls=$Ipath.$ModName."-api.php"; break;
-				case "API": $MeinFileOfModuls=$Ipath.$ModName."-api.php"; break;		
-				default: $MeinFileOfModuls=$Ipath.$ModName.".php"; break;
+				case "json": $MeinFileOfModuls=$Ipath.$ModName."-json.php";
+				require_once "core/lib/parents/Parents_of_jqueryphp.php";
+				break;
+				case "api": $MeinFileOfModuls=$Ipath.$ModName."-api.php"; 
+				require_once "core/lib/parents/Parents_of_api.php";
+				break;
+				case "API": $MeinFileOfModuls=$Ipath.$ModName."-api.php"; 
+				require_once "core/lib/parents/Parents_of_api.php";
+				break;		
+				default: $MeinFileOfModuls=$Ipath.$ModName.".php"; 
+				require_once "core/lib/parents/Parents_of_moduls.php";
+				break;
 			}
 			if(file_exists($INIpath."manifest.ini")){
 				$iniParser->newFile($INIpath."manifest.ini");
@@ -41,7 +50,6 @@ Class CrCoreModulsRunner{
 					require_once($MeinFileOfModuls);
 					$modul=new $ModName($modSettings);
 					$on_moduls[]=$ModName;
-					print_r($on_moduls);
 					$accords=$modSettings['core']['according_list'];
 					$according_list=split(",",$accords);
 					if (!$modSettings['core']['according']=="core_only"){

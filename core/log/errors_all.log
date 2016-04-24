@@ -5,11 +5,25 @@
 CRITIC
 </rang>
 <Type>
-4
+1
 </Type> 
-<date>[2016.04.24] 14:04:18
+<date>[2016.04.24] 19:01:01
 </date>
 <description>
- EROOR: 'syntax error, unexpected '{'' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\ModulsRuner.php' on line: 49
+ EROOR: 'Call to undefined method mydevice::FunDdefault()' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrEngine.php' on line: 51
+</description>
+</Error>
+<Error> 
+<title>
+<rang>
+CRITIC
+</rang>
+<Type>
+1
+</Type> 
+<date>[2016.04.24] 19:01:47
+</date>
+<description>
+ EROOR: 'Call to undefined method mydevice::::src-avatar::()' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrEngine.php' on line: 51
 </description>
 </Error>

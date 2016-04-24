@@ -8,8 +8,6 @@ require_once "core/lib/User_class.php";
 require_once "core/lib/CrMenu.php";
 require_once "core/lib/ModulsRuner.php";
 require_once "core/lib/cacher.php";
-require_once "core/lib/parents/Parents_of_api.php";
-require_once "core/lib/parents/Parents_of_moduls.php";
 require_once "core/lib/CrEngine.php";
 require_once "users-libs/php/includeList.php";
 require_once "core/lib/CrMenu.php";
