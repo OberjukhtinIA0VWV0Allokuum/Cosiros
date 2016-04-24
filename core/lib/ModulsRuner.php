@@ -12,7 +12,7 @@ Class CrCoreModulsRunner{
 		 $this->DBD=$core_database_driver;
 	}
 	public function getModuls($name){
-		global $_Debug,$CoreSystemEroorViewer,$iniParser;
+		global $_Debug,$CoreSystemEroorViewer,$iniParser,$on_moduls;
 		$sql = "SELECT * FROM `CrListModuls` WHERE `urlname`='".$name."'";
 		$sqlo=&$this->DBD->Execute($sql);
 		$ModName=$sqlo->fields[2];
@@ -40,6 +40,18 @@ Class CrCoreModulsRunner{
 				if(file_exists($MeinFileOfModuls)){
 					require_once($MeinFileOfModuls);
 					$modul=new $ModName($modSettings);
+					$on_moduls[]=$ModName;
+					print_r($on_moduls);
+					$accords=$modSettings['core']['according_list'];
+					$according_list=split(",",$accords);
+					if (!$modSettings['core']['according']=="core_only"){
+						foreach ($according_list as &$value) {
+    						if (!in_arrey($value,$on_moduls)) {
+								$this->getModuls($name);
+							} 
+						}
+						unset($value);
+					}
 					$this->rezult=$modul;
 				} else {$this->Error404(); }
 			} else {$this->Error404(); }

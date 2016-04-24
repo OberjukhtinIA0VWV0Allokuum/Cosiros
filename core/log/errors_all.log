@@ -5,67 +5,11 @@
 CRITIC
 </rang>
 <Type>
-1
+4
 </Type> 
-<date>[2016.04.24] 13:17:11
+<date>[2016.04.24] 14:04:18
 </date>
 <description>
- EROOR: 'Class name must be a valid object or a string' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrEngine.php' on line: 49
-</description>
-</Error>
-<Error> 
-<title>
-<rang>
-CRITIC
-</rang>
-<Type>
-1
-</Type> 
-<date>[2016.04.24] 13:19:36
-</date>
-<description>
- EROOR: 'Class name must be a valid object or a string' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrEngine.php' on line: 49
-</description>
-</Error>
-<Error> 
-<title>
-<rang>
-CRITIC
-</rang>
-<Type>
-1
-</Type> 
-<date>[2016.04.24] 13:20:50
-</date>
-<description>
- EROOR: 'Class name must be a valid object or a string' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrEngine.php' on line: 49
-</description>
-</Error>
-<Error> 
-<title>
-<rang>
-CRITIC
-</rang>
-<Type>
-1
-</Type> 
-<date>[2016.04.24] 13:21:16
-</date>
-<description>
- EROOR: 'Class name must be a valid object or a string' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrEngine.php' on line: 49
-</description>
-</Error>
-<Error> 
-<title>
-<rang>
-CRITIC
-</rang>
-<Type>
-1
-</Type> 
-<date>[2016.04.24] 13:21:45
-</date>
-<description>
- EROOR: 'Class name must be a valid object or a string' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrEngine.php' on line: 52
+ EROOR: 'syntax error, unexpected '{'' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\ModulsRuner.php' on line: 49
 </description>
 </Error>
