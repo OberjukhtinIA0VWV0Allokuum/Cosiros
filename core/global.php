@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "core/lib/crTemplater.php";
 require_once "core/lib/iniFile.php";
 require_once "core/lib/ADODB/adodb.inc.php";
@@ -23,13 +24,17 @@ $head->SetCharseft("utf-8");
 $head->SetIcon("favicon.ico");
 $head->AddScriptFromFile($core_and_site_parameters['path']['code_js']."jquery-latest.min.js");
 $core_database_driver = &ADONewConnection('mysql');
+$core_database_driver->charSet = 'utf8_unicode_ci';
 $core_database_driver->Connect($secret_parameters['database']['db_server'], $secret_parameters['database']['db_username'], $secret_parameters['database']['db_key'], $secret_parameters['database']['db_name']);
+$core_database_driver->Execute("SET NAMES 'utf8'");
+$core_database_driver->Execute("SET CHARACTER SET 'utf8'");
 $url = split("/",$_GET['url']);
 $Start_Parametrs['function']=$url[1];
 $url1 = split("[.]",$url[0]);
-if ($url1[1]){
+
+if (!empty($url1[1])){
 	switch($url1[1]){
-		case "json": $Start_Parametrs['mode']='json'; break;
+		case 'jq': $Start_Parametrs['mode']='json'; break;
 		case "api": $Start_Parametrs['mode']='api'; break;
 		case "API": $Start_Parametrs['mode']='api'; break;		
 		case "TV": $Start_Parametrs['mode']='tv'; break;
@@ -41,7 +46,7 @@ if ($url1[1]){
 		default: $Start_Parametrs['mode']='web'; break;
 	}
 } else {
-$Start_Parametrs['mode']="Web";
+$Start_Parametrs['mode']="web";
 }
 $Start_Parametrs['moduls']=$url1[0];
 array_shift($url);

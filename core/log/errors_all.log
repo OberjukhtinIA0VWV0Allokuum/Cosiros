@@ -5,12 +5,12 @@
 CRITIC
 </rang>
 <Type>
-1
+4
 </Type> 
-<date>[2016.04.24] 19:43:59
+<date>[2016.04.26] 09:08:04
 </date>
 <description>
- EROOR: 'Call to undefined method mydevice::mydevice()' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrEngine.php' on line: 55
+ EROOR: 'syntax error, unexpected '.'' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrMenu.php' on line: 26
 </description>
 </Error>
 <Error> 
@@ -21,10 +21,10 @@ CRITIC
 <Type>
 1
 </Type> 
-<date>[2016.04.24] 19:46:59
+<date>[2016.04.26] 09:11:48
 </date>
 <description>
- EROOR: 'Call to undefined method mydevice::::src-avatar::()' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrEngine.php' on line: 54
+ EROOR: 'Call to undefined method mydevice::core()' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrEngine.php' on line: 53
 </description>
 </Error>
 <Error> 
@@ -35,10 +35,10 @@ CRITIC
 <Type>
 1
 </Type> 
-<date>[2016.04.24] 19:48:09
+<date>[2016.04.26] 09:11:49
 </date>
 <description>
- EROOR: 'Call to undefined method mydevice::::src-avatar::()' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrEngine.php' on line: 54
+ EROOR: 'Call to undefined method mydevice::favicon.ico()' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrEngine.php' on line: 53
 </description>
 </Error>
 <Error> 
@@ -49,10 +49,10 @@ CRITIC
 <Type>
 1
 </Type> 
-<date>[2016.04.24] 19:48:16
+<date>[2016.04.26] 10:01:08
 </date>
 <description>
- EROOR: 'Call to undefined method mydevice::::src-avatar::()' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrEngine.php' on line: 54
+ EROOR: 'Call to undefined method mydevice::core()' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrEngine.php' on line: 53
 </description>
 </Error>
 <Error> 
@@ -63,9 +63,65 @@ CRITIC
 <Type>
 1
 </Type> 
-<date>[2016.04.24] 19:49:39
+<date>[2016.04.26] 10:01:08
 </date>
 <description>
- EROOR: 'Call to undefined method mydevice::::src-avatar::()' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrEngine.php' on line: 54
+ EROOR: 'Call to undefined method mydevice::favicon.ico()' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrEngine.php' on line: 53
+</description>
+</Error>
+<Error> 
+<title>
+<rang>
+CRITIC
+</rang>
+<Type>
+1
+</Type> 
+<date>[2016.04.26] 10:01:10
+</date>
+<description>
+ EROOR: 'Call to undefined method mydevice::core()' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrEngine.php' on line: 53
+</description>
+</Error>
+<Error> 
+<title>
+<rang>
+CRITIC
+</rang>
+<Type>
+1
+</Type> 
+<date>[2016.04.26] 10:01:10
+</date>
+<description>
+ EROOR: 'Call to undefined method mydevice::favicon.ico()' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrEngine.php' on line: 53
+</description>
+</Error>
+<Error> 
+<title>
+<rang>
+CRITIC
+</rang>
+<Type>
+1
+</Type> 
+<date>[2016.04.26] 10:05:09
+</date>
+<description>
+ EROOR: 'Call to undefined method mydevice::core()' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrEngine.php' on line: 53
+</description>
+</Error>
+<Error> 
+<title>
+<rang>
+CRITIC
+</rang>
+<Type>
+1
+</Type> 
+<date>[2016.04.26] 10:05:10
+</date>
+<description>
+ EROOR: 'Call to undefined method mydevice::favicon.ico()' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrEngine.php' on line: 53
 </description>
 </Error>

@@ -12,7 +12,7 @@ Class CrCoreModulsRunner{
 		 $this->DBD=$core_database_driver;
 	}
 	public function getModuls($name){
-		global $_Debug,$CoreSystemEroorViewer,$iniParser,$on_moduls;
+		global $_Debug,$Start_Parametrs,$CoreSystemEroorViewer,$iniParser,$on_moduls;
 		$sql = "SELECT * FROM `CrListModuls` WHERE `urlname`='".$name."'";
 		$sqlo=&$this->DBD->Execute($sql);
 		$ModName=$sqlo->fields[2];
@@ -25,20 +25,18 @@ Class CrCoreModulsRunner{
 			$INIpath="moduls/".$ModName.".moddir/";  
 			global $Start_Parametrs;
 			$MeinFileOfModuls=''; 
-			if ($Start_Parametrs=$Start_Parametrs['mode']==''){
+			if ($Start_Parametrs['mode']==''){
 				$MeinFileOfModuls=$Ipath.$ModName.".php";
 				require_once "core/lib/parents/Parents_of_moduls.php";
 			}
+			global $Start_Parametrs;
 			switch($Start_Parametrs['mode']){
-				case "json": $MeinFileOfModuls=$Ipath.$ModName."-json.php";
+				case 'json': $MeinFileOfModuls=$Ipath.$ModName."-json.php";
 				require_once "core/lib/parents/Parents_of_jqueryphp.php";
 				break;
 				case "api": $MeinFileOfModuls=$Ipath.$ModName."-api.php"; 
 				require_once "core/lib/parents/Parents_of_api.php";
 				break;
-				case "API": $MeinFileOfModuls=$Ipath.$ModName."-api.php"; 
-				require_once "core/lib/parents/Parents_of_api.php";
-				break;		
 				default: $MeinFileOfModuls=$Ipath.$ModName.".php"; 
 				require_once "core/lib/parents/Parents_of_moduls.php";
 				break;
@@ -64,6 +62,7 @@ Class CrCoreModulsRunner{
 				} else {$this->Error404(); }
 			} else {$this->Error404(); }
 		}
+	$sqlo->Close();
 	}
 	private function Error404(){
 		$this->status=1;
