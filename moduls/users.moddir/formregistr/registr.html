@@ -1,0 +1,47 @@
+<div class="form_description">
+<h2>Регистрация</h2>
+<p>Для регистрации на сайте заполните поля и нажмите кнопку. Все поля с "*" являются обязательными.</p>
+</div><hr>						
+<h1>Логин * </h1>
+<input type="text" id="login">
+<p>Введите желаемый логин. Возможные символы: Латинские и кириллические строчные и заглавные буквы, цифры от 0 до 9, _, - и . А-Яа-я0-9A-Za-z_-. От 7 до  25 символов.</p><hr> 
+<h1>Email * </h1>
+<input type="email" id="mailo">
+<p>Ваш адрес электронной почты. Он понадобится для восстановления страницы.</p> <hr>
+<H1">Дата Вашего рождения * </H1>
+<input type="date" id="dateb"> 
+<p>Когда вы родились? В свой день рождения Вы получите поздравление от сайта. Некоторые модули тоже захотят вас поздравить. И ваши друзья - тоже.</p> 
+<hr>
+<h1>Имя * </H1>
+<input type="text" id="name">
+<p>С этим именем вы будите вступать в диалоги, от этого имени будут писаться записи в ленты. Это имя - ваше лицo на сайте. Возможные символы: Латинские и кириллические строчные и заглавные буквы, пробел, цифры от 0 до 9, _, - и . А-Яа-я0-9A-Za-z_-. От 7 до  90 символов.</p> 
+<h1>Пароль * </h1>
+<input type="password" id="pass1">
+<p>Введите пароль, который собираете использовать для доступа на сайт. возможные символы: Латинские и кириллические строчные и заглавные буквы, цифры от 0 до 9, _, - и . А-Яа-я0-9A-Za-z_-. От 7 до  25 символов.</p>
+<hr> 
+<h1>Повторите Пароль * <h1>
+<input type="password" id="pass">
+<p>Повторите выбранный вами пароль. Это нужно, чтобы убедится, что Вы не совершили опечатку и уверены в выборе пароля.</p> 
+<hr><img id="capcha-image" src="http://testmasteke.leo/users.jq/capcha" width="300" height="75" alt=""><a href="javascript:void(0);" onclick="document.getElementById('capcha-image').src='http://testmasteke.leo/users.jq/capcha?rid='" +="" math.random();="">Дальше</a><br>
+<input type="text" id="capcha-input"><hr>
+<div class="u" id="er" style="display:none;"> 555 </div>
+<input id="sendp" type="submit" value="Регистрация" /> <br>
+<script type="text/javascript" >  
+$(document).ready(function(){
+	
+$("#sendp").click(function(){
+	 $("#er").css({'display':'block'});
+	 var par = new Array();
+	 par[par.length]=$("#login").val();
+	 par[par.length]=$("#mailo").val();
+	 par[par.length]=$("#dateb").val();
+	 par[par.length]=$("#name").val();
+	 par[par.length]=$("#pass1").val();
+	 par[par.length]=$("#pass").val();
+	 par[par.length]=$("#capcha-input").val();
+	 var adres;
+	adres=jscoretransurljq('users','registration',par);
+	$("#er").load(adres);
+})
+});   
+</script>

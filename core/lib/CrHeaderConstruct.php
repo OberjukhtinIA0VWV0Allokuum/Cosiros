@@ -25,19 +25,21 @@ class CrHeaderConstruct{
 	имеется возможнность подключить хоть сколько ктт.
 	вход -=путь_до_ктт=- (строка)
 	 */
+	 //
 	public function SetCss($pathToCSS){
 		$this->css=$this->css." <link rel='stylesheet' type='text/css' href=".$pathToCSS."'/> ";
 	}
 	/* SetIcon - Подключает иконку.
 	вход -=путь_до_иконки=- (строка)
-	 */
-	public function SetIcon($pathToIcon){
-		$this->icon="<link rel='icon' href=".$pathToIcon." type='image/x-icon' />";
+	 
+	public function SetIcon($pathToIcon){//
+		$this->icon="";
 	}
 	/* SetTitle - Задаёт заголловок страницы.
 	вход -=заголовок=- (строка)
 	 */
 	public function SetTitle($title){
+		
 		$this->title="<title>".$title.". ".$this->siteName."</title>";
 	}
 	/* SetCharseft - Задаёт кодировку страницы.
@@ -51,6 +53,7 @@ class CrHeaderConstruct{
 	вход -=путь_до_скрипта=- (строка)
 	 */
 	public function AddScriptFromFile($PathToJS){
+		global $serverPath;
 		$this->scripts=$this->scripts.' <script type="text/javascript" src="'.$PathToJS.'"></script> ';
 	}
 	/* AddScriptFromFile - Подключае скрипта.

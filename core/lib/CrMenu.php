@@ -8,10 +8,10 @@ class CrMenu{
 	public Function MainMenu(){
 		global $core_database_driver,$secret_parameters,$core_and_site_parameters; 
 		$user=0;
-		if (!(isset($_SESSION['user']) or $_SESSION['user']==0)){
-			$user=1;
+		if (!(isset($_SESSION['user_rool']) or $_SESSION['user_rool']==0)){
+			$user=0;
 		}
-		$AllMenu='';
+		$AllMenu='';//
 		$thisitem='';
 		$Inscape=array();
 		$menuItem=new crTemplater("::","not faund","::");
@@ -19,6 +19,7 @@ class CrMenu{
 		$sql = "SELECT * FROM `CrMenuTable` ";
 		$sqlo=&$this->DBD->Execute($sql);
 		$ADODB_FETCH_MODE = ADODB_FETCH_NUM;;
+	
 			while (!$sqlo->EOF) {
     		    if ($sqlo->fields[4]==1){
 					if ($sqlo->fields[3]==$user){
@@ -27,9 +28,9 @@ class CrMenu{
 						$menuItem->assign_vars($Inscape);
 						$thisitem=$menuItem->render();
 						$AllMenu=$AllMenu.$thisitem."";
-        				$sqlo->MoveNext();
 					}
 				}
+				$sqlo->MoveNext();
 			}
 		return $AllMenu;	
 	}

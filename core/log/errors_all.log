@@ -7,10 +7,10 @@ CRITIC
 <Type>
 4
 </Type> 
-<date>[2016.04.26] 09:08:04
+<date>[2016.04.29] 12:17:28
 </date>
 <description>
- EROOR: 'syntax error, unexpected '.'' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrMenu.php' on line: 26
+ EROOR: 'syntax error, unexpected ';'' in file 'C:\OpenServer\domains\testmasteke.leo\moduls\users.moddir\users-json.php' on line: 22
 </description>
 </Error>
 <Error> 
@@ -21,10 +21,24 @@ CRITIC
 <Type>
 1
 </Type> 
-<date>[2016.04.26] 09:11:48
+<date>[2016.04.29] 17:33:35
 </date>
 <description>
- EROOR: 'Call to undefined method mydevice::core()' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrEngine.php' on line: 53
+ EROOR: 'Call to undefined method users::userslis()' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrEngine.php' on line: 55
+</description>
+</Error>
+<Error> 
+<title>
+<rang>
+CRITIC
+</rang>
+<Type>
+4
+</Type> 
+<date>[2016.04.29] 17:46:50
+</date>
+<description>
+ EROOR: 'syntax error, unexpected '}'' in file 'C:\OpenServer\domains\testmasteke.leo\moduls\users.moddir\users.php' on line: 35
 </description>
 </Error>
 <Error> 
@@ -35,10 +49,24 @@ CRITIC
 <Type>
 1
 </Type> 
-<date>[2016.04.26] 09:11:49
+<date>[2016.04.29] 20:42:42
 </date>
 <description>
- EROOR: 'Call to undefined method mydevice::favicon.ico()' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrEngine.php' on line: 53
+ EROOR: 'Call to undefined method users::core()' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrEngine.php' on line: 55
+</description>
+</Error>
+<Error> 
+<title>
+<rang>
+CRITIC
+</rang>
+<Type>
+4
+</Type> 
+<date>[2016.04.29] 21:15:37
+</date>
+<description>
+ EROOR: 'syntax error, unexpected T_ENCAPSED_AND_WHITESPACE, expecting T_STRING or T_VARIABLE or T_NUM_STRING' in file 'C:\OpenServer\domains\testmasteke.leo\moduls\staticpage.moddir\staticpage.php' on line: 6
 </description>
 </Error>
 <Error> 
@@ -49,79 +77,9 @@ CRITIC
 <Type>
 1
 </Type> 
-<date>[2016.04.26] 10:01:08
+<date>[2016.04.29] 21:18:13
 </date>
 <description>
- EROOR: 'Call to undefined method mydevice::core()' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrEngine.php' on line: 53
-</description>
-</Error>
-<Error> 
-<title>
-<rang>
-CRITIC
-</rang>
-<Type>
-1
-</Type> 
-<date>[2016.04.26] 10:01:08
-</date>
-<description>
- EROOR: 'Call to undefined method mydevice::favicon.ico()' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrEngine.php' on line: 53
-</description>
-</Error>
-<Error> 
-<title>
-<rang>
-CRITIC
-</rang>
-<Type>
-1
-</Type> 
-<date>[2016.04.26] 10:01:10
-</date>
-<description>
- EROOR: 'Call to undefined method mydevice::core()' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrEngine.php' on line: 53
-</description>
-</Error>
-<Error> 
-<title>
-<rang>
-CRITIC
-</rang>
-<Type>
-1
-</Type> 
-<date>[2016.04.26] 10:01:10
-</date>
-<description>
- EROOR: 'Call to undefined method mydevice::favicon.ico()' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrEngine.php' on line: 53
-</description>
-</Error>
-<Error> 
-<title>
-<rang>
-CRITIC
-</rang>
-<Type>
-1
-</Type> 
-<date>[2016.04.26] 10:05:09
-</date>
-<description>
- EROOR: 'Call to undefined method mydevice::core()' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrEngine.php' on line: 53
-</description>
-</Error>
-<Error> 
-<title>
-<rang>
-CRITIC
-</rang>
-<Type>
-1
-</Type> 
-<date>[2016.04.26] 10:05:10
-</date>
-<description>
- EROOR: 'Call to undefined method mydevice::favicon.ico()' in file 'C:\OpenServer\domains\testmasteke.leo\core\lib\CrEngine.php' on line: 53
+ EROOR: 'Call to a member function SetCss() on a non-object' in file 'C:\OpenServer\domains\testmasteke.leo\moduls\staticpage.moddir\staticpage.php' on line: 17
 </description>
 </Error>

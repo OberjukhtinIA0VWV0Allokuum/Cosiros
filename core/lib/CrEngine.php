@@ -50,13 +50,13 @@ class CrEngine {
 		if ($modulsRunner->getStatus()<>0){
 			exit();
 		} else {
+			global $sistemUser,$head;
+			$head->SetTitle($this->Start_ParametrsEng['moduls']);
 			$Inscape['mod-autput']=$telo->$activFunction($this->Start_ParametrsEng['parameters']);
 			switch ($this->Start_ParametrsEng['mode']){
 				case 'json': $this->Work_Rezult=$Inscape['mod-autput']; break;
 				case 'api': $this->Work_Rezult=$Inscape['mod-autput']; break;
 				default:
-					global $sistemUser,$head;
-					$head->SetTitle($this->Start_ParametrsEng['moduls']);
 					$copy= new crTemplater("::","not faund","::");
 					$copy->setTplFile($_SERVER['DOCUMENT_ROOT']."/stiles/".$this->core_and_site_parametersEng['site']['stile']."/2stmenuinput.html");
 					$footer=array();

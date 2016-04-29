@@ -29,24 +29,28 @@ Class CrCoreModulsRunner{
 				$MeinFileOfModuls=$Ipath.$ModName.".php";
 				require_once "core/lib/parents/Parents_of_moduls.php";
 			}
-			global $Start_Parametrs;
-			switch($Start_Parametrs['mode']){
-				case 'json': $MeinFileOfModuls=$Ipath.$ModName."-json.php";
-				require_once "core/lib/parents/Parents_of_jqueryphp.php";
-				break;
-				case "api": $MeinFileOfModuls=$Ipath.$ModName."-api.php"; 
-				require_once "core/lib/parents/Parents_of_api.php";
-				break;
-				default: $MeinFileOfModuls=$Ipath.$ModName.".php"; 
-				require_once "core/lib/parents/Parents_of_moduls.php";
-				break;
-			}
 			if(file_exists($INIpath."manifest.ini")){
 				$iniParser->newFile($INIpath."manifest.ini");
 				$modSettings=$iniParser->Read();
+				global $Start_Parametrs;
+					switch($Start_Parametrs['mode']){
+					case 'json': $MeinFileOfModuls=$Ipath.$ModName."-json.php";
+					require_once "core/lib/parents/Parents_of_jqueryphp.php";
+					break;
+					case "api": $MeinFileOfModuls=$Ipath.$ModName."-api.php"; 
+					require_once "core/lib/parents/Parents_of_api.php";
+					break;
+					default: $MeinFileOfModuls=$Ipath.$ModName.".php"; 
+					require_once "core/lib/parents/Parents_of_moduls.php";
+					if (!($modSettings['standart']['style_mode']=='core')){
+						global $head;
+						$head->SetCss("/".$INIpath."styles/".$modSettings['standart']['style']."/main.css");
+					}
+					break;
+				}
 				if(file_exists($MeinFileOfModuls)){
 					require_once($MeinFileOfModuls);
-					$modul=new $ModName($modSettings);
+					$modul=new $ModName($modSettings,$INIpath,$Ipath);
 					$on_moduls[]=$ModName;
 					$accords=$modSettings['core']['according_list'];
 					$according_list=split(",",$accords);

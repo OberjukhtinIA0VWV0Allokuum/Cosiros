@@ -13,6 +13,8 @@ require_once "core/lib/CrEngine.php";
 require_once "users-libs/php/includeList.php";
 require_once "core/lib/CrMenu.php";
 $system_moduls=array('CrMenu','CrAdminPannel','CrUser');
+$serverPath=$_SERVER['DOCUMENT_ROOT'];
+global $serverPath;
 $on_moduls=array();
 $CoreTemplater= new crTemplater("::","not faund","::");
 $iniParser=new iniFile("settings/site.ini");
@@ -21,7 +23,7 @@ $iniParser->NewFile("settings/secret.ini");
 $secret_parameters=$iniParser->read();
 $head=new CrHeaderConstruct($core_and_site_parameters['site']['title']);
 $head->SetCharseft("utf-8");
-$head->SetIcon("favicon.ico");
+//$head->SetIcon("favicon.ico");
 $head->AddScriptFromFile($core_and_site_parameters['path']['code_js']."jquery-latest.min.js");
 $core_database_driver = &ADONewConnection('mysql');
 $core_database_driver->charSet = 'utf8_unicode_ci';
@@ -31,7 +33,6 @@ $core_database_driver->Execute("SET CHARACTER SET 'utf8'");
 $url = split("/",$_GET['url']);
 $Start_Parametrs['function']=$url[1];
 $url1 = split("[.]",$url[0]);
-
 if (!empty($url1[1])){
 	switch($url1[1]){
 		case 'jq': $Start_Parametrs['mode']='json'; break;

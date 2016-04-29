@@ -1,0 +1,22 @@
+<div class="form_description">
+<h2>Авторизация</h2>
+</div><hr>						
+<h1>Логин * </h1>
+<input type="text" id="login">
+<h1>Пароль * </h1>
+<input type="password" id="pass1">
+<input id="sendp" type="submit" value="Войти наа сайт" /> <br>
+<div id="er"></div>
+<script type="text/javascript" >  
+$(document).ready(function(){
+$("#sendp").click(function(){
+	 $("#er").css({'display':'block'});
+	 var par = new Array();
+	 par[par.length]=$("#login").val();
+	 par[par.length]=$("#pass1").val();
+	 var adres;
+	adres=jscoretransurljq('users','auth',par);
+ $("#er").load(adres);
+})
+});   
+</script>

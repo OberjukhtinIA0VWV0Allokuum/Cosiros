@@ -1,14 +1,17 @@
 <?
 class parents_of_moduls{
-	var $SistemGlobalsDrivers;
 	var $DataBaseDrivers;
 	var $ModulsParametrs;
 	var $ModulsReturnedRezult='';
 	var $ModulsStatus=0;
 	var $modulsName='';
-	final public function __construct($modulsStartParametrs){
-		$SistemGlobalsDrivers=$GLOBALS;
-		$this->DataBaseDrivers=$global['core_database_driver'];
+	var $globalpath;
+	var $thislpath;
+	final public function __construct($modulsStartParametrs,$IniPath,$path){
+		$this->globalpath=$path;
+		$this->thislpath=$IniPath;
+		global $core_database_driver;
+		$this->DataBaseDrivers=$core_database_driver;
 		$this->ModulsParametrs=$modulsStartParametrs;
 		$this->modulsName=$this->ModulsParametrs['info']['name'];
 	}

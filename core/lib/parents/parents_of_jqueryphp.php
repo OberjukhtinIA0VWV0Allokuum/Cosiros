@@ -1,21 +1,26 @@
 <?
 class parents_of_jqphp{
-	var $SistemGlobalsDrivers;
 	var $DataBaseDrivers;
 	var $ModulsParametrs;
 	var $ModulsReturnedRezult='';
 	var $ModulsStatus=0;
-	final public function __construct($modulsStartParametrs){
-		$SistemGlobalsDrivers=$GLOBALS;
-		$this->DataBaseDrivers=$global['core_database_driver'];
+	var $modulsName='';
+	var $globalpath;
+	var $thislpath;
+	final public function __construct($modulsStartParametrs,$IniPath,$path){
+		$this->globalpath=$path;
+		$this->thislpath=$IniPath;
+		global $core_database_driver;
+		$this->DataBaseDrivers=$core_database_driver;
 		$this->ModulsParametrs=$modulsStartParametrs;
+		$this->modulsName=$this->ModulsParametrs['info']['name'];
 	}
-	final public function GetRezult(){
-		if ($ModulsStatus==0)/*если статус 0 - отработали нормально, ошибок нет*/{
-			return $ModulsReturnedRezult;
-		} else {
-			return $ModulsStatus;
-		}		
+	final public function GetModulName(){
+		return($this->modulsName);
+	}
+	final public function GetModulSett(){
+		$this->ModulsParametrs->readStringIni();
 	}
 }
+//
 ?>

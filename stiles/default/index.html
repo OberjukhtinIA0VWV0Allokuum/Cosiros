@@ -15,6 +15,22 @@
 		<link rel="stylesheet" href="/stiles/default/assets/css/main.css" />
 		<link rel="stylesheet" href="/smiles/css/main.css">
     	<link rel="stylesheet" href="/smiles/css/jquery.emotions.fb.css">
+		<script type="text/javascript" >
+		//функции js, нужные для работы.
+function jscoretransurljq(moduls,funct,params) {
+	var ReturnedAdresURL;
+	ReturnedAdresURL=location.protocol+"//"+location.host;
+	ReturnedAdresURL=ReturnedAdresURL+"/"+moduls+".jq/"+funct+"/"
+	for(var i=0; i<params.length; i++){
+    	ReturnedAdresURL=ReturnedAdresURL+params[i]+"/";
+	}
+	return ReturnedAdresURL;
+}
+function redirecttomain(){
+document.location=location.protocol+"//"+location.host;
+}
+		</script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.3.js"></script>
 		<!--[if lte IE 8]><link rel="stylesheet" href="/stiles/default/assets/css/ie8.css" /><![endif]-->
 		::header-input::
 	</head>
