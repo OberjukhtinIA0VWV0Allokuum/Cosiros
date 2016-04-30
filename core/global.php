@@ -1,5 +1,23 @@
 <?php
 session_start();
+//функция CrDateTimeGet преобразует серверное время ко времени пользователя (с учетом разницы во времени)
+//если не указана дата/время - берём текущее. Не указан шаблон - берём устнавленный по умолчанию.
+class global_function{
+function CrDateTimeGet($time=0,$templatetime=''){
+	$returnedTimeDate='';
+	if($templatetime==''){
+		global $core_and_site_parameters;
+		$templatetime=$core_and_site_parameters['site']['default_time_template'];
+	}
+	if ($time==0){
+		$date = date(date("Y-m-d H:i:s"));
+		$returnedTimeDate=date($templatetime, strtotime($_SESSION['Delta_Time_h']." hours ".$_SESSION['Delta_Time_m']." minutes", strtotime($date)));		
+	}else{
+		$returnedTimeDate=date($templatetime, strtotime($_SESSION['Delta_Time_h']." hours ".$_SESSION['Delta_Time_m']." minutes", strtotime($tame)));
+	}
+	return $returnedTimeDate;
+}
+}
 require_once "core/lib/crTemplater.php";
 require_once "core/lib/iniFile.php";
 require_once "core/lib/ADODB/adodb.inc.php";

@@ -8,8 +8,10 @@ class CrMenu{
 	public Function MainMenu(){
 		global $core_database_driver,$secret_parameters,$core_and_site_parameters; 
 		$user=0;
-		if (!(isset($_SESSION['user_rool']) or $_SESSION['user_rool']==0)){
-			$user=0;
+		if (!(isset($_SESSION['ActivUser_rool'])) or $_SESSION['ActivUser_rool']==0){
+			$user=1;
+		} else {
+			$user=$_SESSION['ActivUser_rool'];
 		}
 		$AllMenu='';//
 		$thisitem='';
@@ -22,7 +24,7 @@ class CrMenu{
 	
 			while (!$sqlo->EOF) {
     		    if ($sqlo->fields[4]==1){
-					if ($sqlo->fields[3]==$user){
+					if ($sqlo->fields[3]==$user or $sqlo->fields[3]==0){
 						$Inscape['href']=$core_and_site_parameters['site']['adress'].$sqlo->fields[1];
 						$Inscape['name']=$sqlo->fields[2];
 						$menuItem->assign_vars($Inscape);

@@ -32,6 +32,7 @@ Class CrCoreModulsRunner{
 			if(file_exists($INIpath."manifest.ini")){
 				$iniParser->newFile($INIpath."manifest.ini");
 				$modSettings=$iniParser->Read();
+				
 				global $Start_Parametrs;
 					switch($Start_Parametrs['mode']){
 					case 'json': $MeinFileOfModuls=$Ipath.$ModName."-json.php";

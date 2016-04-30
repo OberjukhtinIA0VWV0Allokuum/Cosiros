@@ -37,7 +37,9 @@ Class CrCoreUserAuth{
 			$UserInfo="Приветствую, <span>Незнакомец</span>!<br>Пожалуйста, <a href='".$core_and_site_parameters['site']['adress']."/users/authn/'>войди в систему</a> или <a href='".$core_and_site_parameters['site']['adress']."/users/registration/'>зарегистрируйся</a>.";
 		}else{
 			$UserInfo="Приветствую, <span>".$_SESSION['ActivUser_name']." (".$_SESSION['ActivUser_login'].")</span>!<br><a href='".$core_and_site_parameters['site']['adress']."/users/userslist/'>Кто тут есть?</a> | <a href='".$core_and_site_parameters['site']['adress']."/users/exitr/'>Выйти.</a>.";
-		}		
+		}
+		//$glob= new global_function();
+		//=$UserInfo."<hr> Страница создана: ".$glob->CrDateTimeGet();		
 		return($UserInfo);
 	}
 }

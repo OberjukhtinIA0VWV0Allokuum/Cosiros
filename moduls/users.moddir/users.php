@@ -8,6 +8,9 @@ Class users extends parents_of_moduls {
 		return "<script>redirecttomain();</script>";
 	}
 	function registration($arr){
+		if(isset($_SESSION['ActivUser_date'])){
+			return "<script>redirecttomain();</script>";
+		}
 		global $head;
 		$head->SetCss($this->thislpath."formregistr/view.css");
 //		$head->AddScriptFromFile('/core/js/jquery-latest.min.js');
@@ -16,6 +19,9 @@ Class users extends parents_of_moduls {
 		return $form;
 	}
 	function authn(){
+		if(isset($_SESSION['ActivUser_date'])){
+			return "<script>redirecttomain();</script>";
+		}
 		global $head;
 		$head->SetCss($this->thislpath."formauth/view.css");
 //		$head->AddScriptFromFile('/core/js/jquery-latest.min.js');

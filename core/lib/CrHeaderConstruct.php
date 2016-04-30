@@ -54,7 +54,7 @@ class CrHeaderConstruct{
 	 */
 	public function AddScriptFromFile($PathToJS){
 		global $serverPath;
-		$this->scripts=$this->scripts.' <script type="text/javascript" src="'.$PathToJS.'"></script> ';
+		$this->scripts=$this->scripts.' <script type="text/javascript">'.file_get_contents($PathToJS).'</script> ';
 	}
 	/* AddScriptFromFile - Подключае скрипта.
 	имеется возможнность подключить хоть сколько скриптов.

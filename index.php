@@ -11,7 +11,7 @@ $CoreSystemEroorViewer= new CrCoreErrorViewer();
 require_once("core/lib/CrError.php"); //подключаем обработчик ошибок
 $errorController = new ErrorSupervisor(); // запускаем его
 if ((isset($_SESSION['is_delta_time']))and ($_SESSION['is_delta_time'] == '1')){
-	require_once "core/global.php"; //если разница во 
+	require_once "core/global.php"; //если разница во
 } else {
 	$html=" <script src='core/js/jquery-latest.min.js'></script>
 	<Script>
