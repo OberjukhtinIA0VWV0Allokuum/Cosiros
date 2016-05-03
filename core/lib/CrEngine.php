@@ -16,7 +16,6 @@ class CrEngine {
 		$on_moduls, $system_moduls, $SystemRunner, $sistemUser, $sistemCacher;
 		$this->sistemCacherEng=$sistemCacher;
 		$this->Start_ParametrsEng=$Start_Parametrs;
-		//print_r($this->Start_ParametrsEng);
 		$this->CoreSystemEroorViewerEng=$CoreSystemEroorViewer; 
 		$this->core_database_driverEng=$core_database_driver;
 		$this->headEng=$head;

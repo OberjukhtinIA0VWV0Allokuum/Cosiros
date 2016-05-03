@@ -11,3 +11,4 @@ function jscoretransurljq(moduls,funct,params) {
 function redirecttomain(){
 document.location=location.protocol+"//"+location.host;
 }
+

@@ -30,6 +30,7 @@ Class CrCoreUserAuth{
 				$_SESSION['ActivUser_region']=$sqlo->fields[8];
 			}	
 		}
+		return $userRet;
 	}
 	Function GetUserWindow(){
 		$UserInfo='';

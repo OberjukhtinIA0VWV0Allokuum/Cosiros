@@ -5,7 +5,7 @@
 //последние изменения -
 //string ini_set (, string newvalue);
 session_start();//запускаем нашу сессию
-$_Debug=FALSE;
+$_Debug=TRUE;
 require_once "core/lib/ErrorViewer.php";
 $CoreSystemEroorViewer= new CrCoreErrorViewer();
 require_once("core/lib/CrError.php"); //подключаем обработчик ошибок
