@@ -20,6 +20,6 @@ class parents_of_moduls{
 	}
 	final public function GetModulSett(){
 		$this->ModulsParametrs->readStringIni();
-	}
+	}//
 }
 ?>

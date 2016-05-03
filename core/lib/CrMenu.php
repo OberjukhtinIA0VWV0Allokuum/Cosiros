@@ -8,7 +8,7 @@ class CrMenu{
 	public Function MainMenu(){
 		global $core_database_driver,$secret_parameters,$core_and_site_parameters; 
 		$user=0;
-		if (!(isset($_SESSION['ActivUser_rool'])) or $_SESSION['ActivUser_rool']==0){
+		if ((!isset($_SESSION['ActivUser_rool'])) or $_SESSION['ActivUser_rool']==0){
 			$user=1;
 		} else {
 			$user=$_SESSION['ActivUser_rool'];
@@ -21,7 +21,6 @@ class CrMenu{
 		$sql = "SELECT * FROM `CrMenuTable` ";
 		$sqlo=&$this->DBD->Execute($sql);
 		$ADODB_FETCH_MODE = ADODB_FETCH_NUM;;
-	
 			while (!$sqlo->EOF) {
     		    if ($sqlo->fields[4]==1){
 					if ($sqlo->fields[3]==$user or $sqlo->fields[3]==0){
@@ -39,14 +38,22 @@ class CrMenu{
 	public Function SecondMenu(){
 		
 	}
-	public Function AddItemMainM(){
-		
+	public Function AddItemMainM($Url,$Name,$Roole){
+		//print($url." - ".$name." - ".$Roole." - ");
+		global $DataBaseName;
+		//$this->DBD->debug=1;
+		$sql = "INSERT INTO `".$DataBaseName."`.`CrMenuTable` (`id`, `url`, `name`, `type`, `menu`) VALUES (NULL, '".$Url."', '".$Name."', '".$Roole."', '1');";
+		$a=&$this->DBD->Execute($sql);
+		return $a;
 	}
 	public Function AddItemSecondM(){
 		
 	}
-	public Function DeleteItem(){
-		
+	public Function DeleteItem($itemId){
+		global $DataBaseName;
+		$sql = "UPDATE `".$DataBaseName."`.`CrMenuTable` SET  `menu` =  '9' WHERE  `crmenutable`.`id` =".$itemId.";";
+		$a=&$this->DBD->Execute($sql);
+		return $a;
 	}
 }
 ?>

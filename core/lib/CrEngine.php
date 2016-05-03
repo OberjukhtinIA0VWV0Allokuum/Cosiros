@@ -33,6 +33,7 @@ class CrEngine {
 	public function Run(){
 		global $Start_Parametrs,$_Debug,$CoreSystemEroorViewer,$core_and_site_parameters;
 		$this->CoreTemplaterEng->setTplFile($_SERVER['DOCUMENT_ROOT']."/stiles/".$this->core_and_site_parametersEng['site']['stile']."/index.html");
+		
 		$menu='';
 		$modul='';
 		$Inscape= array();
@@ -66,7 +67,8 @@ class CrEngine {
 					$copy->assign_vars($footer);
 					$Inscape['copy']=$copy->render();
 					$Inscape['rights']=$this->core_and_site_parametersEng['site']['about_rights'];
-					$Inscape['scripts']='';
+					global $headJs;
+					$Inscape['scripts']='';//$headJs->render;
 					$Inscape['design']=$this->core_and_site_parametersEng['site']['admin_name']." (".$this->core_and_site_parametersEng['site']['admin_mail'].")";
 					$Inscape['Main_adress']=$this->core_and_site_parametersEng['site']['adress'];
 					$Inscape['org-name']=$this->core_and_site_parametersEng['site']['name'];
@@ -74,7 +76,7 @@ class CrEngine {
 					$menu=new CrMenu();
 					$Inscape['menu-inputs']=$menu->mainMenu();
 					$Inscape['icon']=$sistemUser->GetUserWindow();
-					$Inscape['header-input']=$head->render();
+					$Inscape['header-input']=$head->render(); 	
 					$this->CoreTemplaterEng->assign_vars($Inscape);
 					$this->Work_Rezult=$this->CoreTemplaterEng->render();
 					break;

@@ -1,5 +1,5 @@
 //функции js, нужные для работы.
-function js_coretransurljq(moduls,funct,params) {
+function jscoretransurljq(moduls,funct,params) {
 	var ReturnedAdresURL;
 	ReturnedAdresURL=location.protocol+"//"+location.host;
 	ReturnedAdresURL=ReturnedAdresURL+"/"+moduls+".jq/"+funct+"/"
@@ -7,4 +7,7 @@ function js_coretransurljq(moduls,funct,params) {
     	ReturnedAdresURL=ReturnedAdresURL+params[i]+"/";
 	}
 	return ReturnedAdresURL;
+}
+function redirecttomain(){
+document.location=location.protocol+"//"+location.host;
 }

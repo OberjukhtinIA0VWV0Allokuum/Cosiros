@@ -2,7 +2,7 @@
 Class staticpage extends parents_of_moduls {
 	function FunDdefault() {
 		global $core_and_site_parameters;
-		$a=$arrayName = array();
+		$a=array();
 		$a[0]=$core_and_site_parameters['site']['defaultpage'];
 		return $this->printpage($a);
 	}

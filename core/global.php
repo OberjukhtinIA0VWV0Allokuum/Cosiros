@@ -3,6 +3,52 @@ session_start();
 //функция CrDateTimeGet преобразует серверное время ко времени пользователя (с учетом разницы во времени)
 //если не указана дата/время - берём текущее. Не указан шаблон - берём устнавленный по умолчанию.
 class global_function{
+function CrCopyDIrAll($from,$to){
+$this->recurse_copy($from,$to);
+}
+function recurse_copy($src,$dst) { 
+    $dir = opendir($src); 
+    @mkdir($dst); 
+    while(false !== ( $file = readdir($dir)) ) { 
+        if (( $file != '.' ) && ( $file != '..' )) { 
+            if ( is_dir($src . '/' . $file) ) { 
+                $this->recurse_copy($src . '/' . $file,$dst . '/' . $file); 
+            } 
+            else { 
+                copy($src . '/' . $file,$dst . '/' . $file); 
+            } 
+        } 
+    } 
+    closedir($dir); 
+} 
+function CrGetFileList($dir)
+  {
+    // массив, хранящий возвращаемое значение
+    $retval = array();
+    // добавляет конечный слеш, если была возвращена пустота
+    if(substr($dir, -1) != "/") $dir .= "/";
+    // указать путь до директории и прочитать список вложенных файлов
+    $d = @dir($dir) or die("getFileList: Не удалось открыть каталог $dir для чтения");
+    while(false !== ($entry = $d->read())) {
+      // пропустить скрытые файлы
+      if($entry[0] == ".") continue;
+      if(is_dir("$dir$entry")) {
+        $retval[] = array(
+          "name" => "$dir$entry/",
+          "size" => 0,
+          "lastmod" => filemtime("$dir$entry")
+        );
+      } elseif(is_readable("$dir$entry")) {
+        $retval[] = array(
+          "name" => "$dir$entry",
+          "size" => filesize("$dir$entry"),
+          "lastmod" => filemtime("$dir$entry")
+        );
+      }
+    }
+    $d->close();
+    return $retval;
+  }
 function CrDateTimeGet($time=0,$templatetime=''){
 	$returnedTimeDate='';
 	if($templatetime==''){
@@ -30,6 +76,10 @@ require_once "core/lib/cacher.php";
 require_once "core/lib/CrEngine.php";
 require_once "users-libs/php/includeList.php";
 require_once "core/lib/CrMenu.php";
+require_once "core/lib/ModulsMeneger.php";
+require_once "core/lib/JsAdder.php";
+$functions = new global_function();
+global $functions;
 $system_moduls=array('CrMenu','CrAdminPannel','CrUser');
 $serverPath=$_SERVER['DOCUMENT_ROOT'];
 global $serverPath;
@@ -39,10 +89,15 @@ $iniParser=new iniFile("settings/site.ini");
 $core_and_site_parameters=$iniParser->read();//print_r($core_and_site_parameters);
 $iniParser->NewFile("settings/secret.ini");
 $secret_parameters=$iniParser->read();
+$DataBaseName=$secret_parameters['database']['db_name'];
+global $DataBaseName;
 $head=new CrHeaderConstruct($core_and_site_parameters['site']['title']);
 $head->SetCharseft("utf-8");
 //$head->SetIcon("favicon.ico");
 $head->AddScriptFromFile($core_and_site_parameters['path']['code_js']."jquery-latest.min.js");
+$head->AddScriptFromFile($core_and_site_parameters['path']['code_js']."jcore.js");
+$head->AddScriptFromFile($core_and_site_parameters['path']['code_js']."jssmile.js");
+$head->AddScriptFromFile($core_and_site_parameters['path']['code_js']."jsmine.js");
 $core_database_driver = &ADONewConnection('mysql');
 $core_database_driver->charSet = 'utf8_unicode_ci';
 $core_database_driver->Connect($secret_parameters['database']['db_server'], $secret_parameters['database']['db_username'], $secret_parameters['database']['db_key'], $secret_parameters['database']['db_name']);

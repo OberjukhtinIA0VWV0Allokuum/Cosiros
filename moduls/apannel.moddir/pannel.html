@@ -2,7 +2,7 @@
 	<p>Активные панели меню. Выберите пункт, нажмите "удалить", чтобы убрать меню.</p>
 	<select id="DeliteOfMenu">::ActivMenuList::</select>
 	<button id="ButtonOfDeliteOfMenu" type="submit" value="удалить">Удалить</button> <hr><hr><hr>
-	<p>Добавить поле меню. Заполните значения и жмите "добавить элемент". !!ВНИМАНИЕ - АДРЕС МЕНЮ НАЧИНАТЬ НЕ СДАМЕННГО ИМЕНИ, А С НАЗВАНИ МОДУЛЯ!!</p><HR>
+	<p>Добавить поле меню. Заполните значения и жмите "добавить элемент". !!ВНИМАНИЕ - АДРЕС МЕНЮ НАЧИНАТЬ НЕ С ДАМЕННГО ИМЕНИ, А С НАЗВАНИЯ МОДУЛЯ!!</p><HR>
 	<p>Название элемента. Текст, который будет отображаться на данном пункте меню.</p><br><input type="text" id="NameAddesMenu"></inpput><hr>
 	<p>Адрес элемента. </p><br><input type="text" id="AdresAddesMenu"></inpput><hr>
 	<p>Права элемента.</p><br>
@@ -12,12 +12,71 @@
 	<option value="2">Доступ зарегистрированным пользователям.</option>
 	<option value="3">Доступ только для администрации.</option></select>
 	<hr> 
-	<button id="ButtonOfAddOfMenu" type="submit" value="добавить">Дабавить</button><hr><hr><hr>
+	<button id="ButtonOfAddOfMenu" type="submit" value="добавить">Добавить</button><hr><hr><hr>
 	<p>Активные модули. Выберите пункт, нажмите "удалить", чтобы удалить модуль.</p>
-	<select id="DeliteOfMenu">::ActivModulsList::</select>
+	<select id="DeliteOfMod" >::ActivModulsList::</select>
 	<button id="ButtonOfDeliteOfModuls" type="submit" value="удалить">Удалить</button><hr><hr><hr>
 	<p>Мдули, ждущие установки. Выберите пункт, нажмите "установить", чтобы установить.</p>
 	<select id="InstallModuls">::ListForInstal::</select>
 	<button id="ButtonOfInstallModul" type="submit" value="уcтановить">Установить</button><hr><hr><hr>
+	<p>Добавить статическую cстраницу. Заполните значения и жмите "добавить элемент". !!ВНИМАНИЕ - ФАЙЛЫ СТРАНИЦ НАХОДЯТСЯ В /HTML-STATIC-PAGE/!!</p><HR>
+	<p>Имя файла, где записан HTML-текст страницы.</p><br><input type="text" id="TextPage"></inpput><hr>
+	<p>Название элемента. Текст, который будет отображаться в меню и в заголовке окна браузера. </p><br><input type="text" id="NamePage"></inpput><hr>
+	<p>Права элемента.</p><br>
+	<select required id="RoolPage">
+	<option value="0">Доступ всем.</option>
+	<option value="1">Доступ незарегистрированным пользователям.</option>
+	<option value="2">Доступ зарегистрированным пользователям.</option>
+	<option value="3">Доступ только для администрации.</option></select>
+	<hr> 
+	<button id="ButtonOfAddPage" type="submit" value="добавить">Дабавить</button><hr><hr><hr>
 	<div class="u" id="er" style="display:none;"> 555 </div>
+<script type="text/javascript">
+	$(document).ready(function(){
+$("#ButtonOfDeliteOfMenu").click(function(){
+	 $("#er").css({'display':'block'});
+	 var par = new Array();
+	 par[par.length]=$("#DeliteOfMenu").val();
+	 var adres;
+	adres=jscoretransurljq('adminpannel','delitedmenu',par);
+ $("#er").load(adres);
+})
+$("#ButtonOfAddOfMenu").click(function(){
+	 $("#er").css({'display':'block'});
+	 var par = new Array();
+	 par[par.length]=$("#NameAddesMenu").val();
+	 par[par.length]=$("#AdresAddesMenu").val();
+	 par[par.length]=$("#RoolAddesMenu").val();
+	 var adres;
+	adres=jscoretransurljq('adminpannel','adedmenu',par);
+ $("#er").load(adres);
+})
+$("#ButtonOfDeliteOfModuls").click(function(){
+	 $("#er").css({'display':'block'});
+	 var par = new Array();
+	 par[par.length]=$("#DeliteOfMod").val();
+	 var adres;
+	adres=jscoretransurljq('adminpannel','delitedmoduls',par);
+ $("#er").load(adres);
+})
+$("#ButtonOfInstallModul").click(function(){
+	 $("#er").css({'display':'block'});
+	 var par = new Array();
+	 par[par.length]=$("#InstallModuls").val();
+	 var adres;
+	adres=jscoretransurljq('adminpannel','installmoduls',par);
+ $("#er").load(adres);
+})
+$("#ButtonOfAddPage").click(function(){
+	 $("#er").css({'display':'block'});
+	 var par = new Array();
+	 par[par.length]=$("#NamePage").val();
+	 par[par.length]=$("#TextPage").val();
+	 par[par.length]=$("#RoolPage").val();
+	 var adres;
+	adres=jscoretransurljq('adminpannel','adedpage',par);
+ $("#er").load(adres);
+})
+});
+	</script>
 </center></div>

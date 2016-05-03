@@ -14,6 +14,7 @@ class ErrorSupervisor
 	}
 		public function OtherErrorCatcher($errno, $errstr)
 	{
+		global $_Debug;
 		if ($_Debug){
 			$error = error_get_last();
 			$file=$_SERVER['DOCUMENT_ROOT'].'/core/log/errors_all.log';
@@ -24,9 +25,10 @@ class ErrorSupervisor
 				$date."\r\n</date>\r\n<description>\r\n EROOR: '".$error['message']."' in file '".$error['file'].
 				"' on line: ".$error['line']."\r\n</description>\r\n</Error>";
 				fwrite($fp,$log);
+	
+			}
 		}
-		}
-		return false;
+		return true;
 	}
 	public function FatalErrorCatcher()
 	{

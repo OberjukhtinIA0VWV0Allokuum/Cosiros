@@ -13,10 +13,10 @@ Class CrCoreModulsRunner{
 	}
 	public function getModuls($name){
 		global $_Debug,$Start_Parametrs,$CoreSystemEroorViewer,$iniParser,$on_moduls;
-		$sql = "SELECT * FROM `CrListModuls` WHERE `urlname`='".$name."'";
+		$sql = "SELECT * FROM `CrListModuls` WHERE `urlname`='".$name."' AND `blockedmoduls` =0";
 		$sqlo=&$this->DBD->Execute($sql);
 		$ModName=$sqlo->fields[2];
-		if ( !$sqlo  or $ModName=="") {
+		if ( !$sqlo  or $ModName=="" or $sqlo->fields[8]==1) {
 			$this->Error404();
 		} else {
 			$path='';	
@@ -32,7 +32,6 @@ Class CrCoreModulsRunner{
 			if(file_exists($INIpath."manifest.ini")){
 				$iniParser->newFile($INIpath."manifest.ini");
 				$modSettings=$iniParser->Read();
-				
 				global $Start_Parametrs;
 					switch($Start_Parametrs['mode']){
 					case 'json': $MeinFileOfModuls=$Ipath.$ModName."-json.php";
@@ -55,10 +54,10 @@ Class CrCoreModulsRunner{
 					$on_moduls[]=$ModName;
 					$accords=$modSettings['core']['according_list'];
 					$according_list=split(",",$accords);
-					if (!$modSettings['core']['according']=="core_only"){
-						foreach ($according_list as &$value) {
-    						if (!in_arrey($value,$on_moduls)) {
-								$this->getModuls($name);
+					if ($modSettings['core']['according']=="core+"){
+						foreach ($according_list as $value) {
+							if (!in_array($value,$on_moduls)) {
+								$this->getModuls($value);
 							} 
 						}
 						unset($value);

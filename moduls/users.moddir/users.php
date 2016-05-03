@@ -1,4 +1,4 @@
-<?
+<?//
 Class users extends parents_of_moduls {
 	function FunDdefault() {
 		return $this->userslist();
