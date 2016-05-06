@@ -6,7 +6,7 @@
 class CrEngine {
 	var $Work_Status="normal";
 	var $Work_Errors='0';
-	var $Work_Rezult='Huston,we have a problem';
+	var $Work_Rezult='Huston,we have a problem'; 
 	var $Start_ParametrsEng,$CoreSystemEroorViewerEng, $core_database_driverEng, $headEng, 
 	$secret_parametersEng, $iniParserEng,  $core_and_site_parametersEng, $CoreTemplaterEng,
 	$on_modulsEng, $MainPage, $system_modulsEng, $SystemRunnerEng, $sistemUserEng, $sistemCacherEng;

@@ -20,14 +20,14 @@ Class CrCoreUserAuth{
 			$sql="SELECT * FROM  `CrUserMain` WHERE  `userlogin` =  '".$user."' or  `id` =  '".$user."'";
 			$sqlo=&$this->DataBaseDrivers->Execute($sql);
 			if ($sqlo){
-				$_SESSION['ActivUser_id']=$sqlo->fields[0];
-				$_SESSION['ActivUser_login']=$sqlo->fields[1];
-				$_SESSION['ActivUser_name']=$sqlo->fields[2];
-				$_SESSION['ActivUser_date']=$sqlo->fields[3];
-				$_SESSION['ActivUser_rool']=$sqlo->fields[5];
-				$_SESSION['ActivUser_mail']=$sqlo->fields[6];
-				$_SESSION['ActivUser_phone']=$sqlo->fields[7];
-				$_SESSION['ActivUser_region']=$sqlo->fields[8];
+				$userRet['ActivUser_id']=$sqlo->fields[0];
+				$userRet['ActivUser_login']=$sqlo->fields[1];
+				$userRet['ActivUser_name']=$sqlo->fields[2];
+				$userRet['ActivUser_date']=$sqlo->fields[3];
+				$userRet['ActivUser_rool']=$sqlo->fields[5];
+				$userRet['ActivUser_mail']=$sqlo->fields[6];
+				$userRet['ActivUser_phone']=$sqlo->fields[7];
+				$userRet['ActivUser_region']=$sqlo->fields[8];
 			}	
 		}
 		return $userRet;
